@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0000ff" />
+    <title>Monitoring WFH DPRD Jabar</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1 id="headerTitle">
+        Absensi Monitoring WFH Sekretariat DPRD Provinsi Jawa Barat
+      </h1>
+
+      <!-- FORM ABSEN -->
+      <div id="formAbsen">
+        <h2>Bagian Umum</h2>
+
+        <input
+          list="listNama"
+          id="nama"
+          placeholder="Cari nama..."
+          autocomplete="off"
+        />
+        <datalist id="listNama"></datalist>
+        <input type="text" id="nip" placeholder="NIP" readonly />
+
+        <!-- JABATAN -->
+        <h3>Jabatan</h3>
+        <input type="text" id="jabatanText" placeholder="Jabatan" readonly />
+
+        <!-- FOTO -->
+        <h3>Foto Bukti Absen</h3>
+        <label class="camera-box">
+          <input
+            type="file"
+            id="foto"
+            accept="image/*"
+            capture="environment"
+            hidden
+          />
+          <div id="previewBox">
+            📷
+            <p>Ambil Foto</p>
+            <p style="font-size: 12px; color: #888">Maks ukuran foto 5MB</p>
+          </div>
+        </label>
+
+        <button type="button" class="btn btn-submit" onclick="submitAbsen()">
+          ✅ Submit
+        </button>
+        <button type="button" class="btn btn-warning" onclick="pegawaiBaru()">
+          ⚠️ Nama tidak ditemukan?
+        </button>
+      </div>
+
+      <div
+        id="popupSuccess"
+        style="
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          background: #4caf50;
+          color: white;
+          padding: 20px 30px;
+          border-radius: 10px;
+          display: none;
+          z-index: 9999;
+          font-weight: bold;
+        "
+      >
+        ✅ Absen berhasil!
+      </div>
+
+      <!-- FORM PEGAWAI BARU -->
+      <div id="formBaru" class="hidden">
+        <h2>Pengguna Baru</h2>
+
+        <input
+          type="text"
+          id="namaBaru"
+          placeholder="Nama Lengkap"
+          autocomplete="off"
+        />
+
+        <input
+          type="text"
+          id="nipBaru"
+          placeholder="NIP (isi ( - ) jika outsourcing)"
+          autocomplete="off"
+          inputmode="numeric"
+        />
+
+        <h3>Jabatan</h3>
+        <div class="jabatan-group">
+          <label class="jabatan-card">
+            <input type="radio" name="jabatanBaru" value="PNS" required />
+            <span>PNS</span>
+          </label>
+
+          <label class="jabatan-card">
+            <input type="radio" name="jabatanBaru" value="PPPK" required />
+            <span>PPPK</span>
+          </label>
+
+          <label class="jabatan-card">
+            <input
+              type="radio"
+              name="jabatanBaru"
+              value="Outsourcing"
+              required
+            />
+            <span>Outsourcing</span>
+          </label>
+        </div>
+
+        <button type="button" class="btn btn-submit" onclick="submitBaru()">
+          SUBMIT
+        </button>
+        <button type="button" class="btn btn-back" onclick="kembaliKeAbsen()">
+          ⬅ Kembali
+        </button>
+      </div>
+    </div>
+
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-app.js";
+      import {
+        getDatabase,
+        ref,
+        get,
+        push,
+      } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-database.js";
+      import {
+        getStorage,
+        ref as sRef,
+        uploadBytes,
+        getDownloadURL,
+      } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-storage.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSy...",
+        authDomain: "absensi-dprd.firebaseapp.com",
+        databaseURL:
+          "https://absensi-dprd-default-rtdb.asia-southeast1.firebasedatabase.app",
+        projectId: "absensi-dprd",
+        storageBucket: "absensi-dprd.firebasestorage.app",
+        messagingSenderId: "114311295228",
+        appId: "1:114311295228:web:c298b6bb167dac1e7a2779",
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const db = getDatabase(app);
+      const storage = getStorage(app);
+
+      window.db = db;
+      window.ref = ref;
+      window.get = get;
+      window.push = push;
+
+      window.storage = storage;
+      window.sRef = sRef;
+      window.uploadBytes = uploadBytes;
+      window.getDownloadURL = getDownloadURL;
+    </script>
+
+    <script src="script.js"></script>
+  </body>
+</html>

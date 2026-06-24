@@ -1,0 +1,233 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+  margin: 0;
+  padding: 20px;
+}
+
+/* ===============================
+   CONTAINER
+=============================== */
+.container {
+  max-width: 400px;
+  margin: auto;
+  padding: 25px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* ===============================
+   TITLE
+=============================== */
+#headerTitle {
+  text-align: center;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+h1 {
+  margin-bottom: 5px;
+}
+h1 {
+  padding: 15px;
+  border-radius: 15px;
+  margin-bottom: 15px;
+  transition: 0.3s;
+}
+
+h2 {
+  margin-bottom: 15px;
+}
+
+/* ===============================
+   MENU BUTTON
+=============================== */
+#menu button {
+  width: 100%;
+  padding: 14px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 12px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+#menu button:hover {
+  transform: translateY(-2px);
+}
+
+/* warna */
+#menu button:nth-child(1) {
+  background: orange;
+}
+#menu button:nth-child(2) {
+  background: blue;
+  color: white;
+}
+#menu button:nth-child(3) {
+  background: red;
+  color: white;
+}
+#menu button:nth-child(4) {
+  background: green;
+  color: white;
+}
+
+/* ===============================
+   INPUT & SELECT
+=============================== */
+input,
+select {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  outline: none;
+  transition: 0.2s;
+}
+
+input:focus,
+select:focus {
+  border-color: #007bff;
+}
+
+/* khusus select biar lebih enak */
+select {
+  cursor: pointer;
+}
+
+/* ===============================
+   BUTTON GLOBAL
+=============================== */
+.btn {
+  width: 100%;
+  height: 50px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 14px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: scale(0.96);
+}
+
+/* warna */
+.btn-submit {
+  background: linear-gradient(135deg, #28a745, #218838);
+  color: white;
+}
+
+.btn-back {
+  background: linear-gradient(135deg, #dc3545, #c82333);
+  color: white;
+}
+
+.btn-warning {
+  background: linear-gradient(135deg, #d39e00, #b8860b);
+  color: black;
+  font-weight: bold;
+}
+
+/* ===============================
+   JABATAN
+=============================== */
+.jabatan-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.jabatan-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px;
+  border-radius: 12px;
+  border: 2px solid #ddd;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.jabatan-card:hover {
+  background: #f0f0f0;
+}
+
+.jabatan-card input {
+  width: 18px;
+  height: 18px;
+}
+
+/* selected */
+.jabatan-card input:checked + span {
+  font-weight: bold;
+  color: green;
+}
+
+.jabatan-card:has(input:checked) {
+  border-color: green;
+  background: #eaf7ea;
+}
+
+/* ===============================
+   CAMERA
+=============================== */
+.camera-box {
+  display: block;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+#previewBox {
+  border: 2px dashed #aaa;
+  border-radius: 20px;
+  padding: 30px;
+  text-align: center;
+  font-size: 40px;
+  background: #fafafa;
+  transition: 0.2s;
+}
+
+#previewBox:hover {
+  background: #f0f0f0;
+}
+
+#previewBox p {
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+/* ===============================
+   UTIL
+=============================== */
+.hidden {
+  display: none;
+}
+
+input,
+select {
+  width: 100%;
+  height: 48px; /* ⬅️ KUNCI biar sama tinggi */
+  padding: 0 12px; /* ⬅️ biar center vertical */
+  margin: 10px 0;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  box-sizing: border-box;
+  appearance: none; /* ⬅️ hilangin style default */
+}
+
+select {
+  background-color: white;
+  cursor: pointer;
+}
