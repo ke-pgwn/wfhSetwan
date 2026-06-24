@@ -110,16 +110,16 @@ async function submitAbsen() {
   const hour = jakartaTime.getHours();
 
   // hanya Senin
-  // if (day !== 4) {
-  //   alert("Absen hanya bisa dilakukan Pada Saat WFH");
-  //   return;
-  // }
+  if (day !== 4) {
+    alert("Absen hanya bisa dilakukan Pada Saat WFH");
+    return;
+  }
 
   // hanya jam 07:00 - 08:00
-  // if (hour < 7 || hour >= 10) {
-  //   alert("Absen hanya bisa Dilakukan Saat Zoom Berlangsung");
-  //   return;
-  // }
+  if (hour < 7 || hour >= 9) {
+    alert("Absen hanya bisa Dilakukan Saat Zoom Berlangsung");
+    return;
+  }
 
   const btn = document.querySelector("#formAbsen .btn-submit");
   if (btn.disabled) return;
