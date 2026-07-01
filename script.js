@@ -116,7 +116,7 @@ async function submitAbsen() {
   }
 
   // hanya jam 07:00 - 08:00
-  if (hour < 7 || hour >= 9) {
+  if (hour < 8 || hour >= 10) {
     alert("Absen hanya bisa Dilakukan Saat Zoom Berlangsung");
     return;
   }
